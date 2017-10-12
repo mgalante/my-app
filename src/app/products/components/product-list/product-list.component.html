@@ -1,10 +1,13 @@
-<p>
-  product-list works!
-</p>
-<ul>
-	<li *ngFor="let product of products;let i = index">{{ i }}{{product.name}}</li>
-</ul>
-<pre>
-{{products | json }}
-</pre>
-<h1>{{products[0].name}}</h1>
+
+	<table class="product-list__table">
+		<tr>
+			<td>Producto</td>
+			<td>Precio</td>
+			<td>Stock</td>
+		</tr>
+		<tr *ngFor="let product of products"	>
+				<td>{{product.name}}</td>
+				<td>{{product.price | currency}}</td>
+				<td>{{product.stock}}</td>
+			</tr>
+	</table>
