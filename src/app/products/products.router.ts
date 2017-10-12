@@ -1,12 +1,9 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProductEditComponent } from './product-edit/product-edit.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDashboardComponent } from './containers/product-dashboard/product-dashboard.component';
 
 const routes: Routes = [
-		{ path: 'home', component: ProductListComponent },
-		{ path: 'edit', component: ProductEditComponent }
-		
+		{ path: '', component: ProductDashboardComponent },		
 ];
 export const ProductsRouter: ModuleWithProviders = RouterModule.forChild(routes);
 
