@@ -9,6 +9,10 @@ export class ProductDashboardComponent implements OnInit {
 
   constructor() { }
 
+
+	onProductEdit(product: Product){
+		console.log(product);
+	}
 	products : Product [];
   ngOnInit() {
 		this.products = [
