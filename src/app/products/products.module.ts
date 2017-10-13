@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsRouter } from './products.router';
@@ -10,9 +11,11 @@ import { ProductService } from './product.service';
 @NgModule({
   imports: [
 		CommonModule,
-		ProductsRouter
+		ProductsRouter,
+		FormsModule,
+		ReactiveFormsModule
   ],
-	declarations: [ProductListComponent, ProductDashboardComponent, ProductFormComponent, ProductEditComponent],
+	declarations: [ProductListComponent, ProductDashboardComponent, ProductFormComponent],
 	providers: [
 		ProductService
 	]

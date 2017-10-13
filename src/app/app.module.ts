@@ -4,6 +4,7 @@ import { MyModule } from './my-module/my-module.module';
 
 import { AppComponent } from './app.component';
 import { AppRouter } from './app.router';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,9 +13,10 @@ import { AppRouter } from './app.router';
   imports: [
     BrowserModule,
 		MyModule,
-		AppRouter
+		AppRouter,
+		ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ FormBuilder ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,19 @@
-<p>
-  product-form works!
-</p>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit($event)" >
+	<label>Name</label>
+	<input formControlName="name" />
+	<br>
+	<label>price</label>
+	<input formControlName="price"  type="number"/>
+	<br>
+	<label>Stock</label>
+	<input formControlName="stock"  type="number" />
+
+	<input type="submit" /> 
+</form>
+
+<input [ngModel]="product.name" 
+	(blur)="product.name = name.value" #name />
+
+<pre>
+	{{ product | json}}
+</pre>

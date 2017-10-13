@@ -1,0 +1,6 @@
++Estructura de carpetas
++Contenedor de estados
++Auteticacion + MockServer
++Routing (child y parametros)
++Validaciones reactive forms
++Animaciones, ngClases, ngSwitch  

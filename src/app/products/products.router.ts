@@ -5,8 +5,7 @@ import { ProductEditComponent } from './containers/product-edit/product-edit.com
 
 const routes: Routes = [
 		{ path: '', component: ProductDashboardComponent },
-		{ path: '/edit/:id', component: ProductEditComponent },
-		
+		// { path: '/edit/:id', component: ProductEditComponent },
 ];
 export const ProductsRouter: ModuleWithProviders = RouterModule.forChild(routes);
 
