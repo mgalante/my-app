@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, Input, ChangeDetectionStrategy, EventEmit
 import { Product } from '../../models/product.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Category } from '../../models/category.model';
+import { ProductValidators } from './product.validators';
 
 @Component({
 	selector: 'app-product-form',
@@ -10,7 +11,7 @@ import { Category } from '../../models/category.model';
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductFormComponent 
-implements OnInit, OnChanges	 {
+implements  OnChanges	 {
 	ngOnChanges(changes: SimpleChanges): void {
 		if(changes.product)
 		{
@@ -25,6 +26,17 @@ implements OnInit, OnChanges	 {
 		}
 	}
 
+	get nameInvalid(){
+		return this.productForm.get('name').hasError('required')
+		&& this.productForm.get('name').touched;
+	}
+	
+
+	get stockInvalid(){
+		return this.productForm.get('stock').hasError('cantidadMultiplo')
+		&& this.productForm.get('stock').touched;
+	}
+	
 	@Input()
 	product: Product;
 
@@ -39,7 +51,9 @@ implements OnInit, OnChanges	 {
 			Validators.required
 		]],
 		'stock': ['', [
-			Validators.required
+			Validators.min(10),
+			Validators.required, 
+			ProductValidators.cantidadMultiplo(10)
 		]],
 		'category': ['',[]]
 	});
@@ -61,10 +75,6 @@ implements OnInit, OnChanges	 {
 		let product : Product= this.productForm.value;
 		product.id = this.product.id;
 		this.productChange.emit(product); 
-	}
-
-	ngOnInit() {
-		
 	}
 
 }

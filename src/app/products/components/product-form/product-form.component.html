@@ -2,20 +2,23 @@
 	<div>
 		<label>Name</label>
 		<input formControlName="name" />
-		<p *ngIf="productForm.get('name').hasError('required')"	style="color:red">Este campo es requerido</p>
+		<p *ngIf="nameInvalid"	style="color:red">Este campo es requerido</p>
 	</div>
 	<label>price</label>
 	<input formControlName="price" type="number" />
 	<br>
 	<label>Stock</label>
 	<input formControlName="stock" type="number" />
-
-	<input type="submit" />
+	<p *ngIf="stockInvalid"	style="color:red">Cantidades redondas</p>
+	
 	<select formControlName="category">
 		<option value="">Seleccione</option>			
 		<option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>			
 	</select>
+	<input type="submit" [disabled]="productForm.invalid"/>
+
 </form>
+
 
 <input [ngModel]="product.name" (ngModelChange)="product.name = $event" />
 
