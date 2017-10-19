@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from "rxjs/Subject";
 import "rxjs/add/operator/takeUntil"
 import { ProductService } from '../../product.service';
+import { Category } from '../../models/category.model';
 
 @Component({
   selector: 'app-product-dashboard',
@@ -16,6 +17,8 @@ export class ProductDashboardComponent implements OnInit {
 	constructor(private productService : ProductService) { }
 	
   private ngUnsubscribe$: Subject<void> = new Subject<void>();
+
+	categories$: Observable<Category[]>;
 
 	onProductChange(product: Product){
 		this.productService.onProductChange(product);
@@ -35,6 +38,8 @@ export class ProductDashboardComponent implements OnInit {
 		.subscribe((products)=>{
 			this.products = products;
 		});
+
+		this.categories$ = this.productService.categories$;
 	}
 	
 	ngOnDestroy(): void {

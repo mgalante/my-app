@@ -1,18 +1,34 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit($event)" >
-	<label>Name</label>
-	<input formControlName="name" />
-	<br>
-	<label>price</label>
-	<input formControlName="price"  type="number"/>
-	<br>
-	<label>Stock</label>
-	<input formControlName="stock"  type="number" />
+<form [formGroup]="productForm" (ngSubmit)="onSubmit($event)">
+	<div>
+		<label>Name</label>
+		<input formControlName="name" />
+		<p class="error" *ngIf="productForm.get('name').hasError('required') && productForm.get('name').dirty">Este campo es requerido</p>
+	</div>
+	<div>
+		<label>price</label>
+		<input formControlName="price" type="number" />
+		<p class="error" *ngIf="productForm.get('price').hasError('required')">Este campo es requerido</p>
+	</div>
+	<div>
+		<label>Stock</label>
+		<input formControlName="stock" type="number" />
+		<p class="error" *ngIf="productForm.get('stock').hasError('invalidQuantity')">Este campo debe ser multiplo de 10</p>
+		<p class="error" *ngIf="productForm.get('stock').hasError('required')">Este campo es requerido</p>		
+		<p class="error" *ngIf="productForm.get('stock').hasError('min')">El stock debe ser mayor a 0</p>		
+		
+	</div>
+	<div>
+		<select formControlName="category">
+		<option value="">Seleccione...</option>
+		<option *ngFor="let category of categories"
+		 [value]="category.id">{{category.name}}</option>
+	</select>
+	</div>
 
-	<input type="submit" /> 
+	<input type="submit" />
 </form>
 
-<input [ngModel]="product.name" 
-	(blur)="product.name = name.value" #name />
+<input [ngModel]="product.name" (ngModelChange)="product.name = $event" />
 
 <pre>
 	{{ product | json}}

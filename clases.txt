@@ -1,6 +1,10 @@
++Validaciones reactive forms
++Routing (child y parametros)
++Animaciones, ngClases, ngSwitch  
++Auteticacion + MockServer
 +Estructura de carpetas
 +Contenedor de estados
-+Auteticacion + MockServer
-+Routing (child y parametros)
-+Validaciones reactive forms
-+Animaciones, ngClases, ngSwitch  
+
+
+concurrently "json-server --watch data.json --routes routes.json" "ng serve -o -proxy-config proxy.conf.json"
+
