@@ -5,18 +5,20 @@ import { MyModule } from './my-module/my-module.module';
 import { AppComponent } from './app.component';
 import { AppRouter } from './app.router';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { Http, HttpModule } from '@angular/http';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
+	declarations: [
+		AppComponent
+	],
+	imports: [
+		BrowserModule,
 		MyModule,
 		AppRouter,
-		ReactiveFormsModule
-  ],
-  providers: [ FormBuilder ],
-  bootstrap: [AppComponent]
+		ReactiveFormsModule,
+		HttpModule
+	],
+	providers: [FormBuilder],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

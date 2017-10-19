@@ -57,8 +57,8 @@ export class ProductFormComponent implements OnChanges {
 	onSubmit() {
 		// this.productForm.get("name").markAsDirty()
 		// this.productForm.get("name").markAsTouched()
-		
-		if ( !this.productForm.invalid) {
+
+		if (!this.productForm.invalid) {
 			let product: Product = this.productForm.value;
 			product.id = this.product.id;
 			this.productChange.emit(product);
