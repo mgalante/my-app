@@ -19,9 +19,9 @@ export class ProductEditComponent implements OnInit {
 	product;
 
   ngOnInit() {
-		this.product = this.route.paramMap
-    .switchMap((params: ParamMap) =>
-      this.service.getProduct(params.get('id')));
+		// this.product = this.route.paramMap
+    // .switchMap((params: ParamMap) =>
+    //   this.service.getProduct(params.get('id')));
   }
 
 }
