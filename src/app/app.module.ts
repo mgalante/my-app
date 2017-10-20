@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MyModule } from './my-module/my-module.module';
-
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRouter } from './app.router';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +14,7 @@ import { productReducer } from './reducers/product.reducer';
     AppComponent
   ],
   imports: [
+		HttpModule,
     BrowserModule,
 		MyModule,
 		AppRouter,

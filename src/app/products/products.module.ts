@@ -14,7 +14,7 @@ import { ProductService } from './product.service';
 		ProductsRouter,
 		FormsModule,
 		ReactiveFormsModule
-  ],
+	],
 	declarations: [ProductListComponent, ProductDashboardComponent, ProductFormComponent],
 	providers: [
 		ProductService
