@@ -1,18 +1,37 @@
 import { Product } from "./models/product.model";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { Store } from "@ngrx/store";
+import { AddProduct, EditProduct } from "../actions/product.actions";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs/Observable";
 
 
+interface StoreModel {
+	products: Product[];
+}
+
+@Injectable()
 export class ProductService {
-	public products$: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([
-		{id: 1, name: "", price: 25.50, stock: 10, category: 1 },
-		{id: 100, name: "Cocacola 1.5l", price: 55.13, stock: 12, category: 2 }]
-	);
 
-	onProductChange(product: Product){
-		let products :Product[] = this.products$.value;
-		let i = products.findIndex((item) => item.id == product.id);
-		products[i] = product;
-		this.products$.next(products);
+
+	initialProducts = [{id: 1, name: "", price: 25.50, 
+	stock: 10, category: 1 },
+	{id: 100, name: "Cocacola 1.5l", 
+	price: 55.13, stock: 12, category: 2 }];
+
+	products$ : Observable<Product[]>;
+	
+	constructor(private store: Store<StoreModel>){
+		this.initialProducts.forEach(product => {
+			this.store.dispatch(new AddProduct(product));
+		});
+
+		this.products$ = this.store.select("products");
+
+	}
+
+	onProductChange(product: Product){	
+		this.store.dispatch(new EditProduct(product));
 	}
 }
 

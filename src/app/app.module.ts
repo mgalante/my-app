@@ -5,6 +5,9 @@ import { MyModule } from './my-module/my-module.module';
 import { AppComponent } from './app.component';
 import { AppRouter } from './app.router';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from  '@ngrx/store';
+import { productReducer } from './reducers/product.reducer';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +17,8 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
 		MyModule,
 		AppRouter,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		StoreModule.forRoot({ products: productReducer})
   ],
   providers: [ FormBuilder ],
   bootstrap: [AppComponent]

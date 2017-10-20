@@ -13,7 +13,7 @@ import { ProductService } from '../../product.service';
 })
 export class ProductDashboardComponent implements OnInit {
 
-	constructor(private productService : ProductService) { }
+	constructor(private productService : ProductService) {}
 	
   private ngUnsubscribe$: Subject<void> = new Subject<void>();
 
