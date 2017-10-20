@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "name": "qweqwe1",
+      "price": 25.5,
+      "stock": 10,
+      "category": 2,
+      "id": 1
+    },
+    {
+      "name": "Lays",
+      "price": "55.13",
+      "stock": 200,
+      "category": 2,
+      "id": 100
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Bebidas"
+    },
+    {
+      "id": 2,
+      "name": "Snacks"
+    }
+  ]
+}
