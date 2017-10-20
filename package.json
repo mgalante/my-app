@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-		"start": "concurrently  \"json-server --watch data.json --routes routes.json\" \"ng serve -o -proxy-config proxy.conf.json\"",
+    "start": "concurrently  \"json-server --watch data.json --routes routes.json\" \"ng serve -o -proxy-config proxy.conf.json\"",
     "ng": "ng",
     "build": "ng build",
     "test": "ng test",
@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "@ngrx/store": "^4.1.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"

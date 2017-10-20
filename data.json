@@ -4,15 +4,15 @@
       "name": "qweqwe1",
       "price": 25.5,
       "stock": 10,
-      "category": 1,
+      "category": 2,
       "id": 1
     },
     {
-      "id": 100,
       "name": "Lays",
       "price": "55.13",
-      "stock": 12,
-      "category": 2
+      "stock": 200,
+      "category": 2,
+      "id": 100
     }
   ],
   "categories": [

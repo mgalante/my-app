@@ -7,6 +7,7 @@ import "rxjs/add/operator/takeUntil"
 import { ProductService } from '../../product.service';
 import { Category } from '../../models/category.model';
 
+
 @Component({
 	selector: 'app-product-dashboard',
 	templateUrl: './product-dashboard.component.html',
@@ -24,14 +25,14 @@ export class ProductDashboardComponent implements OnInit {
 		//	this.productService.onProductChange(product);
 		this.productService.updateProduct(event)
 		
-		  .subscribe((product: Product) => {
-        this.products = this.products.map((product: Product) => {
-          if (product.id === event.id) {
-            product = Object.assign({}, product, event);
-          }
-          return product;
-        });
-      });
+		  // .subscribe((product: Product) => {
+      //   this.products = this.products.map((product: Product) => {
+      //     if (product.id === event.id) {
+      //       product = Object.assign({}, product, event);
+      //     }
+      //     return product;
+      //   });
+      // });
 		this.selectedProduct = null;
 	}
 

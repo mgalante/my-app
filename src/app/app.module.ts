@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { AppRouter } from './app.router';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Http, HttpModule } from '@angular/http';
-
+import { StoreModule } from '@ngrx/store';
+import { productReducer } from './reducers/product.reducer'
 @NgModule({
 	declarations: [
 		AppComponent
@@ -16,7 +17,8 @@ import { Http, HttpModule } from '@angular/http';
 		MyModule,
 		AppRouter,
 		ReactiveFormsModule,
-		HttpModule
+		HttpModule,
+		StoreModule.forRoot({products: productReducer})
 	],
 	providers: [FormBuilder],
 	bootstrap: [AppComponent]
