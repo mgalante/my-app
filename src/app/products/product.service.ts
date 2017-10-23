@@ -36,7 +36,7 @@ export class ProductService {
 
 	onProductChange(product: Product){
 		this.http.patch(`/api/products/${product.id}`,
-		product).map((resp)=> resp.json())
+		product).
 		subscribe((resp)=>{
 			this.store.dispatch(new EditProduct(resp.json()));			
 		})
